@@ -163,13 +163,19 @@ INNER JOIN suppliers sup ON p.supplier_id = sup.id;
 
 2. Change several INNER operators to LEFT or RIGHT. Determine what happens to the number of rows. Why? Write the answer in a text file.
 ```
-SELECT COUNT(*) AS row_count
-FROM order_details od
-LEFT JOIN orders o ON od.order_id = o.id
-LEFT JOIN customers c ON o.customer_id = c.id
-LEFT JOIN products p ON od.product_id = p.id;
+SELECT COUNT(*) 
+FROM orders
+INNER JOIN order_details on orders.id = order_details.order_id
+LEFT JOIN products on order_details.product_id = products.id
+RIGHT JOIN customers on orders.customer_id = customers.id
+LEFT JOIN categories on products.category_id = categories.id
+LEFT JOIN suppliers on products.supplier_id = suppliers.id
+LEFT JOIN employees on orders.employee_id = employees.employee_id
+LEFT JOIN shippers on orders.shipper_id = shippers.id;
 ```
-<img width="526" alt="p4_2_join_left_right" src="https://github.com/user-attachments/assets/e4623503-3869-4a1a-82c6-4f0472427774">
+<img width="628" alt="p4_2_join_left_right" src="https://github.com/user-attachments/assets/9808be8e-7028-4eda-8d3f-63e50adf6ae9">
+
+When performing various LEFT/RIGHT JOIN combinations, the total number of rows returned was 535, which is more than the number of products in all orders (records from the order_details table). This is because the customers table contains customers who did not place orders. Using a RIGHT JOIN on the customers table resulted in all records from this table being included in the result set, even those that did not have a match in other tables.
 
 3. Select only those rows where employee_id > 3 and ≤ 10.
 ```
