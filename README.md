@@ -1,7 +1,10 @@
 # goit-rdb-hw-04
 The repository for the 4th GoItNeo Relational Databases homework
 
-### 1. Create a database for the book library according to the structure below. Use DDL commands to create the necessary tables and their relationships.
+Homework Description
+
+### Task 1
+Create a database for the book library according to the structure below. Use DDL commands to create the necessary tables and their relationships.
 **Database Structure**
 
 a) Schema Name—"LibraryManagement”
@@ -79,7 +82,8 @@ CREATE TABLE borrowed_books (
 ```
 <img width="664" alt="p1" src="https://github.com/user-attachments/assets/f44226fb-ba6b-4e26-b88f-48602d15b502">
 
-### 2. Fill the tables with simple, fictional test data. One or two rows per table are enough.
+### Task 2
+Fill the tables with simple, fictional test data. One or two rows per table are enough.
 ```
 INSERT INTO authors (author_name) VALUES 
 ('J.K. Rowling'),
@@ -121,7 +125,8 @@ SELECT * FROM borrowed_books;
 
 
 Go to the database you worked with on the topic.
-### 3. Write a query using the FROM and INNER JOIN operators that joins all the data tables we loaded from the files: order_details, orders, customers, products, categories, employees, shippers, and suppliers. To do this, you need to find common keys.
+### Task 3 
+Write a query using the FROM and INNER JOIN operators that joins all the data tables we loaded from the files: order_details, orders, customers, products, categories, employees, shippers, and suppliers. To do this, you need to find common keys.
 Check that the query is executed correctly.
 ```
 USE dz_3_Sakun;
@@ -138,7 +143,8 @@ INNER JOIN suppliers sup ON p.supplier_id = sup.id;
 ```
 <img width="1210" alt="p3" src="https://github.com/user-attachments/assets/cb478a93-c2ba-44b9-984b-06b931db9f31">
 
-### 4. Run the queries listed below.
+### Task 4 
+Run the queries listed below.
 
 1. Determine how many rows you got (using the COUNT operator).
 ```
